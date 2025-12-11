@@ -1,0 +1,28 @@
+# @package model
+_target_: src.models.gcn_with_pooling.GCNWithPooling
+
+# Model architecture
+hidden_dim: 64
+num_layers: 2
+dropout: 0.5
+use_batch_norm: true
+
+# Pooling configuration
+pooling_method: "topk"  # topk, sag, diff, asap, global
+pooling_ratio: 0.8
+pooling_layers: 2
+
+# TopK pooling specific
+topk_score_function: "gcn"  # gcn, gat, sage
+
+# SAG pooling specific
+sag_score_function: "gcn"
+sag_nonlinearity: "tanh"
+
+# DiffPool specific
+diffpool_hidden_dim: 32
+diffpool_num_clusters: 10
+
+# ASAP pooling specific
+asap_hidden_dim: 32
+asap_num_clusters: 10
